@@ -4,7 +4,7 @@
 		<input name="pixelCode" type="TextLine">
 			<label>Your Facebook pixel ID</label>
 			<help-text>The javascript (code) needed for this to work will be generated for you.</help-text>
-			<occurrences maximum="0" minimum="1"/>
+			<occurrences maximum="1" minimum="0"/>
 		</input>
 	</config>
 	<filters>
