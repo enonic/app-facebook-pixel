@@ -13,7 +13,7 @@ exports.responseFilter = function(req, res) {
 
 	// If no pixel code added to app, send null so that no script will be generated.
 	var params = {
-		pixelCode : libs.util.isSet(siteConfig.pixelCode) ? siteConfig.pixelCode : null
+		pixelCode : libs.util.data.isSet(siteConfig.pixelCode) ? siteConfig.pixelCode : null
 	};
 
 	var metadata = libs.thymeleaf.render(view, params);
