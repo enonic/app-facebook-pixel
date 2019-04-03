@@ -1,13 +1,13 @@
 var libs = {
     portal: require('/lib/xp/portal'),
-    thymeleaf: require('/lib/xp/thymeleaf'),
-    util: require('/lib/enonic/util')
+    thymeleaf: require('/lib/thymeleaf'),
+    util: require('/lib/util')
 };
 
 var view = resolve('add-script.html');
 
 
-exports.responseFilter = function(req, res) {
+exports.responseProcessor = function (req, res) {
 
 	var siteConfig = libs.portal.getSiteConfig();
 
