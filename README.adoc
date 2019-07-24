@@ -5,7 +5,8 @@ Adds a simple Facebook Pixel to your website
 
 * Use https://www.facebook.com/business/help/952192354843755[instructions] on the Facebook site to learn how to set up
 your personal Facebook Pixel
-* Add Facebook Pixel app to your site
+* Add Facebook Pixel app to your site using Content Studio for Enonic XP
 * Open the app config form in the Content Studio and fill in your Facebook Pixel Id
+* Save the site
 
 You're done - the application will generate the Facebook Pixel script and inject it into your site's header
