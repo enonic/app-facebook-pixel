@@ -1,0 +1,4 @@
+kind: "Site"
+processors:
+  - name: "add-script"
+    order: 20

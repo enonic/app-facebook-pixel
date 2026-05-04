@@ -1,0 +1,5 @@
+kind: "Application"
+title: "Facebook Pixel"
+description: "Adds a simple Facebook Pixel to your website"
+vendorName: "Enonic AS"
+vendorUrl: "https://enonic.com"
