@@ -1,0 +1,9 @@
+kind: "CMS"
+form:
+  - type: "TextLine"
+    name: "pixelCode"
+    label: "Your Facebook pixel ID"
+    helpText: "The javascript (code) needed for this to work will be generated for you."
+    occurrences:
+      min: 0
+      max: 1
