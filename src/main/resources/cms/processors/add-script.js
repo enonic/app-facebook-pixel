@@ -12,15 +12,18 @@ exports.responseProcessor = function (req, res) {
 
 	// If no pixel code added to app, send null so that no script will be generated.
 	var params = {
-		pixelCode : siteConfig.pixelCode != null ? siteConfig.pixelCode : null
+		pixelCode : (siteConfig.pixelCode !== null && siteConfig.pixelCode !== undefined) ? siteConfig.pixelCode : null
 	};
 
 	var metadata = libs.thymeleaf.render(view, params);
 
 	// Force arrays since single values will be return as string instead of array
 	var headEnd = res.pageContributions.headEnd;
-	res.pageContributions.headEnd = Array.isArray(headEnd) ? headEnd : [headEnd];
-	res.pageContributions.headEnd.push(metadata);
+	var normalizedHeadEnd = (headEnd === null || headEnd === undefined) ? [] : (Array.isArray(headEnd) ? headEnd : [headEnd]);
+	if (metadata !== null && metadata !== undefined) {
+		normalizedHeadEnd.push(metadata);
+	}
+	res.pageContributions.headEnd = normalizedHeadEnd;
 
 	// Add ?debug=true to URL to disable this script-filter.
 	if (req.params) {
