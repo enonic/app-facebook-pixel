@@ -19,8 +19,8 @@ exports.responseProcessor = function (req, res) {
 
 	// Force arrays since single values will be return as string instead of array
 	var headEnd = res.pageContributions.headEnd;
-	var normalizedHeadEnd = headEnd == null ? [] : (Array.isArray(headEnd) ? headEnd : [headEnd]);
-	if (metadata != null) {
+	var normalizedHeadEnd = (headEnd === null || headEnd === undefined) ? [] : (Array.isArray(headEnd) ? headEnd : [headEnd]);
+	if (metadata !== null && metadata !== undefined) {
 		normalizedHeadEnd.push(metadata);
 	}
 	res.pageContributions.headEnd = normalizedHeadEnd;
