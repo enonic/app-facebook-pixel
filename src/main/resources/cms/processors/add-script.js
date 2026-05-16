@@ -1,7 +1,6 @@
 var libs = {
     portal: require('/lib/xp/portal'),
-    thymeleaf: require('/lib/thymeleaf'),
-    util: require('/lib/util')
+    thymeleaf: require('/lib/thymeleaf')
 };
 
 var view = resolve('add-script.html');
@@ -13,13 +12,14 @@ exports.responseProcessor = function (req, res) {
 
 	// If no pixel code added to app, send null so that no script will be generated.
 	var params = {
-		pixelCode : libs.util.data.isSet(siteConfig.pixelCode) ? siteConfig.pixelCode : null
+		pixelCode : siteConfig.pixelCode != null ? siteConfig.pixelCode : null
 	};
 
 	var metadata = libs.thymeleaf.render(view, params);
 
 	// Force arrays since single values will be return as string instead of array
-	res.pageContributions.headEnd = libs.util.data.forceArray(res.pageContributions.headEnd);
+	var headEnd = res.pageContributions.headEnd;
+	res.pageContributions.headEnd = Array.isArray(headEnd) ? headEnd : [headEnd];
 	res.pageContributions.headEnd.push(metadata);
 
 	// Add ?debug=true to URL to disable this script-filter.
