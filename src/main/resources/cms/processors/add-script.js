@@ -19,7 +19,7 @@ exports.responseProcessor = function (req, res) {
 
 	// Force arrays since single values will be return as string instead of array
 	var headEnd = res.pageContributions.headEnd;
-	res.pageContributions.headEnd = Array.isArray(headEnd) ? headEnd : [headEnd];
+	res.pageContributions.headEnd = headEnd == null ? [] : (Array.isArray(headEnd) ? headEnd : [headEnd]);
 	res.pageContributions.headEnd.push(metadata);
 
 	// Add ?debug=true to URL to disable this script-filter.
